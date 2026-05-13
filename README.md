@@ -25,7 +25,6 @@ The model is trained with a scalable data engine on Unreal Engine data, gameplay
 
 ## :fire: News
 - 2026.05.11: We open-sourced [DreamX-World-5B-Cam](inference_README.md) and inference codes.
-- 2026.04.10: DreamX-World is released!
 
 ## :calendar: Plan
 - :heavy_check_mark: DreamX-World-5B-Cam Model.
@@ -56,6 +55,16 @@ Please check out [inference_README.md](inference_README.md) for detailed instruc
 | Model | 🤗 Download Link | Details | Instrutions |
 | -- | -- | -- | -- |
 | DreamX-World-5B-Cam | [Huggingface](https://huggingface.co/GD-ML/DreamX-World-5B-Cam) | w PRoPE Camera Control | [inference_README.md](inference_README.md) |
+
+
+## Inference Speed
+
+### DreamX-World-5B-Cam
+| Hardware | GPUs | DreamX-World-5B-Cam | |
+| :--- | :---: | :---: | :---: |
+| PPU810e | 1 |  |  |
+| PPU810e | 8 |  |  |
+| H20 | 8 |  |  |
 
 
 ## 🎬 Video Demo
