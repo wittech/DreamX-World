@@ -30,15 +30,43 @@ CUDA_DEVICES="0,1,2,3,4,5,6,7"   # Specify GPUs, e.g., "4,5,6,7". Empty = use al
 
 ## Run inference
 
-### 1. DreamX-World-5B-Cam
+### DreamX-World-5B-Cam
 - Generates 5-second videos at 24 FPS (121 frames) or 16 FPS (81 frames).
 - Supports up to 7.5s (in 16FPS) video generation.
+
+1. Prepare your input JSON file (see `configs/dreamx/eval.json` for examples):
+
+```json
+{
+  "image_path": "./demo/your_image.png",
+  "caption": "Style: Photorealistic. A description of the scene...",
+  "action_seq": ["w", "wj"],
+  "action_speed_list": [4, 6]
+}
+```
+
+2. Run inference:
 
 ```bash
 sh inference_dreamx_5b.sh
 ```
 
-#### Uncurated Videos (5s, 24 FPS): 
+### Camera Action Commands
+
+| Action | Description |
+|--------|-------------|
+| `w` | Move forward |
+| `s` | Move backward |
+| `a` | Move left |
+| `d` | Move right |
+| `j` | Tilt down |
+| `k` | Tilt up |
+| `l` | Pan right |
+| `h` | Pan left |
+
+Actions can be composed (e.g., `wj` = move forward + tilt down, `dj` = move right + tilt down).
+
+### Uncurated Videos (5s, 24 FPS): 
 <table align="center">
   <tr>
     <td><video src="https://github.com/user-attachments/assets/77958ada-e840-46e8-8609-d0ef548a18ed" width="100%" autoplay muted loop playsinline></video></td>
