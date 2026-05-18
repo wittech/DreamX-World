@@ -165,8 +165,6 @@ Join our WeChat group for discussion:
   <img src="assets/wechat_group_qrcode.png" width="300" alt="WeChat Group QR Code">
 </div>
 
-**Contact**: 📧 ally.sl@alibaba-inc.com | hongxi.wjh@alibaba-inc.com
-
 ## 📜 License
 
 This project is licensed under Apache 2.0. See [LICENSE](LICENSE.txt) for details.
