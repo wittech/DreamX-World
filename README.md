@@ -56,17 +56,13 @@ Please check out [inference_README.md](inference_README.md) for detailed instruc
 | -- | -- | -- | -- |
 | DreamX-World-5B-Cam | [Huggingface](https://huggingface.co/GD-ML/DreamX-World-5B-Cam),  [ModelScope](https://modelscope.cn/models/GD-ML/DreamX-World-5B-Cam) | w PRoPE Camera Control | [inference_README.md](inference_README.md) |
 
-
 <!-- ## Inference Speed -->
-
 <!-- ### DreamX-World-5B-Cam
 | Hardware | GPUs | DreamX-World-5B-Cam | |
 | :--- | :---: | :---: | :---: |
 | PPU810e | 1 |  |  |
 | PPU810e | 8 |  |  |
 | H20 | 8 |  |  | -->
-
-
 ## 🎬 Video Demo
 <div align="center">
   <video src="https://www.youtube.com/watch?v=lO_VXzpQehc" width="100%" autoplay muted loop playsinline></video>
