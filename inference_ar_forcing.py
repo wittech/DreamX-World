@@ -159,8 +159,6 @@ def parse_args():
 
     # Post-processing
     parser.add_argument("--color_correction_strength", type=float, default=0.3)
-    parser.add_argument("--temporal_smoothing_window", type=int, default=3)
-    parser.add_argument("--blend_overlap_frames", type=int, default=4)
 
     # Camera
     parser.add_argument("--chunk_relative", action="store_true",
@@ -346,8 +344,6 @@ def main():
             video,
             reference_frame=reference_frame,
             color_correction_strength=args.color_correction_strength,
-            temporal_smoothing_window=args.temporal_smoothing_window,
-            blend_overlap_frames=args.blend_overlap_frames,
         )
 
         write_video(output_path, video[0], fps=args.fps)

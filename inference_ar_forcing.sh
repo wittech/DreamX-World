@@ -10,16 +10,16 @@
 # ============================================================================
 
 # ======================== Model Path ========================
-MODEL_NAME="/mnt/workspace/common/models/Wan2.2-TI2V-5B"   # Path to the folder containing Wan2.2 base model weights (text encoder, tokenizer, VAE).
+MODEL_NAME="${MODEL_NAME:-./Wan2.2-TI2V-5B}"   # Path to the folder containing Wan2.2 base model weights (text encoder, tokenizer, VAE).
 CONFIG_PATH="configs/dreamx-ar/causal_camera_forcing_5b.yaml"  # Path to AR-forcing YAML config file.
 TRANSFORMER_PATH="./configs/dreamx-ar/"  # Path to the folder containing AR-forcing model config.json.
 BASE_CHECKPOINT_PATH="${BASE_CHECKPOINT_PATH:-/path/to/baseline.pt}"  # Path to base .pt checkpoint.
 # VAE_PATH=""                    # (Optional) Path to VAE checkpoint, overrides MODEL_NAME/Wan2.2_VAE.pth.
 
 # ====================== Basic settings ======================
-DATA_PATH="${DATA_PATH:-configs/dreamx/eval.json}"
-OUTPUT_FOLDER="${OUTPUT_FOLDER:-./outputs_ar/}"
-NUM_OUTPUT_FRAMES=123             # Latent frames. Pixel frames = (N-1)*4+1. 21→81 pixels (5s@16fps), 63→249 pixels
+DATA_PATH="${DATA_PATH:-configs/dreamx/eval.json}" # Path to input JSON file
+OUTPUT_FOLDER="${OUTPUT_FOLDER:-./outputs_ar/}" # Path to save output video
+NUM_OUTPUT_FRAMES=123             # Latent frames, shall be divisible by 3. Pixel frames = (N-1)*4+1. 21→81 pixels (5s@16fps), 63→249 pixels
 FPS=16                           # FPS of output video
 SEED=42                          # Random seed
 
@@ -50,8 +50,6 @@ CMD="${CMD} --num_output_frames ${NUM_OUTPUT_FRAMES}"
 CMD="${CMD} --fps ${FPS}"
 CMD="${CMD} --seed ${SEED}"
 CMD="${CMD} --color_correction_strength ${COLOR_CORRECTION_STRENGTH}"
-CMD="${CMD} --temporal_smoothing_window ${TEMPORAL_SMOOTHING_WINDOW}"
-CMD="${CMD} --blend_overlap_frames ${BLEND_OVERLAP_FRAMES}"
 CMD="${CMD} ${CHUNK_RELATIVE}"
 
 echo "=============================================="

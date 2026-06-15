@@ -10,9 +10,7 @@ import torch.nn.functional as F
 
 
 def postprocess_video_frames(video_tensor, reference_frame=None,
-                             color_correction_strength=0.3,
-                             temporal_smoothing_window=3,
-                             blend_overlap_frames=4):
+                             color_correction_strength=0.3):
     """
     Post-process video: Lab color correction, temporal Gaussian smoothing, chunk-boundary blending.
 
@@ -20,8 +18,6 @@ def postprocess_video_frames(video_tensor, reference_frame=None,
         video_tensor: [B, T, H, W, C] in range [0, 255].
         reference_frame: [H, W, C] reference for color correction. Defaults to first frame.
         color_correction_strength: 0.0=disabled, 1.0=full correction.
-        temporal_smoothing_window: odd int, 1=disabled.
-        blend_overlap_frames: frames for start-of-video blending, 0=disabled.
 
     Returns:
         Processed video [B, T, H, W, C] in [0, 255].
@@ -75,27 +71,5 @@ def postprocess_video_frames(video_tensor, reference_frame=None,
                 strength = per_frame_strength[t]
                 blended = (1.0 - strength) * frame_np + strength * corrected_rgb.astype(np.float64)
                 processed[b, t] = torch.from_numpy((blended * 255.0).clip(0, 255)).to(video_tensor.dtype)
-
-    # --- Temporal Gaussian smoothing ---
-    if temporal_smoothing_window > 1 and num_frames > temporal_smoothing_window:
-        half_w = temporal_smoothing_window // 2
-        sigma = half_w / 2.0
-        positions = torch.arange(-half_w, half_w + 1, dtype=torch.float32)
-        kernel = torch.exp(-0.5 * (positions / sigma) ** 2)
-        kernel = kernel / kernel.sum()
-
-        flat = processed.permute(0, 2, 3, 4, 1).reshape(-1, 1, num_frames).float()
-        weight = kernel.view(1, 1, -1).to(flat.device)
-        smoothed = F.conv1d(flat, weight, padding=half_w)
-        smoothed = smoothed.squeeze(1).reshape(batch_size, height, width, channels, num_frames)
-        processed = smoothed.permute(0, 4, 1, 2, 3).to(video_tensor.dtype)
-
-    # --- Frame blending at chunk boundaries ---
-    if blend_overlap_frames > 0 and num_frames > blend_overlap_frames * 2:
-        blend_weights = torch.linspace(0.0, 1.0, blend_overlap_frames, device=processed.device)
-        for b in range(batch_size):
-            for i in range(blend_overlap_frames):
-                w = blend_weights[i].item()
-                processed[b, i] = (1.0 - w) * video_tensor[b, i] + w * processed[b, i]
 
     return processed.clamp(0, 255)

@@ -24,15 +24,16 @@ DreamX Team
 The model is trained with a scalable data engine on Unreal Engine data, gameplay footage, and real-world videos, combined with camera estimation and strict data filtering to learn realistic dynamics and interactions. It follows a progressive training pipeline: learning fine-grained action control first, then open-ended event response, and using Reinforcement Learning to improve action following, interaction consistency, and visual fidelity. Finally, through forcing and distillation, DreamX-World achieves efficient inference, making interactive generation practical at scale.
 
 ## :fire: News
+- 2026.06.15: We open-sourced [DreamX-World-5B](inference_README.md) that supports 1-min video generation.
 - 2026.05.11: We open-sourced [DreamX-World-5B-Cam](inference_README.md) and inference codes.
 
 ## :calendar: Plan
 - :heavy_check_mark: DreamX-World-5B-Cam Model.
+- :heavy_check_mark: Autoregressive Video Generation Model.
+- :heavy_check_mark: Real-Time, Interactive, Long-horizon DreamX-World Model.
+- :heavy_check_mark: Release Technical Report.
 - [ ] DreamX-World-14B-Cam Model.
-- [ ] Autoregressive Video Generation Model.
 - [ ] Audio-Video Joint Generation Model.
-- [ ] Real-Time, Interactive, Long-horizon DreamX-World Model.
-- [ ] Release Technical Report.
 
 ## 🚀 Quick Start
 ### Setup
@@ -44,17 +45,18 @@ pip install -r requirements.txt
 2. Download Wan2.2-5B-TI2V checkpoints from https://huggingface.co/Wan-AI
 
 ### Inference
-To generate videos, run the following script:
+<!-- To generate videos, run the following script:
 ```bash
 sh inference_5b.sh
-```
+``` -->
 Please check out [inference_README.md](inference_README.md) for detailed instructions.
 
 
 ## 📍 Checkpoints
 | Model | Download Link | Details | Instrutions |
 | -- | -- | -- | -- |
-| DreamX-World-5B-Cam | [Huggingface](https://huggingface.co/GD-ML/DreamX-World-5B-Cam),  [ModelScope](https://modelscope.cn/models/GD-ML/DreamX-World-5B-Cam) | w PRoPE Camera Control | [inference_README.md](inference_README.md) |
+| DreamX-World-5B-Cam | [Huggingface](https://huggingface.co/GD-ML/DreamX-World-5B-Cam),  [ModelScope](https://modelscope.cn/models/GD-ML/DreamX-World-5B-Cam) | Bidrectional, Supports 5s Video Generation | [inference_README.md](inference_README.md) |
+| DreamX-World-5B | | Autoregressive, Supports Long-horizon Video Generation | [inference_README.md](inference_README.md) |
 
 <!-- ## Inference Speed -->
 <!-- ### DreamX-World-5B-Cam
