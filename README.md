@@ -29,8 +29,7 @@ The model is trained with a scalable data engine on Unreal Engine data, gameplay
 
 ## :calendar: Plan
 - :heavy_check_mark: DreamX-World-5B-Cam Model.
-- :heavy_check_mark: Autoregressive Video Generation Model.
-- :heavy_check_mark: Real-Time, Interactive, Long-horizon DreamX-World Model.
+- :heavy_check_mark: Long-horizon DreamX-World-5B Model.
 - :heavy_check_mark: Release Technical Report.
 - [ ] DreamX-World-14B-Cam Model.
 - [ ] Audio-Video Joint Generation Model.
