@@ -11,7 +11,7 @@ DreamX Team
 
 [![Page](https://img.shields.io/badge/%F0%9F%8C%90%20Project%20Page-Demo-00bfff)](https://amap-ml.github.io/DreamX_World)
 [![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-yellow)](https://huggingface.co/GD-ML/DreamX-World-5B)
-[![ModelScope](https://img.shields.io/badge/ModelScope-Model-624aff?logo=modelscope)](https://modelscope.cn/models/GD-ML/DreamX-World-5B-Cam)
+[![ModelScope](https://img.shields.io/badge/ModelScope-Model-624aff?logo=modelscope)](https://modelscope.cn/models/GD-ML/DreamX-World-5B)
 [![Tech Report](https://img.shields.io/badge/arXiv-2606.16993-b31b1b.svg)](https://arxiv.org/abs/2606.16993)
 [![License](https://img.shields.io/badge/License-Apache--2.0-green)](LICENSE.txt)
 
@@ -56,7 +56,7 @@ Please check out [inference_README.md](inference_README.md) for detailed instruc
 | Model | Download Link | Details | Instrutions |
 | -- | -- | -- | -- |
 | DreamX-World-5B-Cam | [Huggingface](https://huggingface.co/GD-ML/DreamX-World-5B-Cam),  [ModelScope](https://modelscope.cn/models/GD-ML/DreamX-World-5B-Cam) | Bidrectional, Supports 5s Video Generation | [inference_README.md](inference_README.md) |
-| DreamX-World-5B | [Huggingface](https://huggingface.co/GD-ML/DreamX-World-5B) | Autoregressive, Supports Long-horizon Video Generation | [inference_README.md](inference_README.md) |
+| DreamX-World-5B | [Huggingface](https://huggingface.co/GD-ML/DreamX-World-5B), [ModelScope](https://modelscope.cn/models/GD-ML/DreamX-World-5B) | Autoregressive, Supports Long-horizon Video Generation | [inference_README.md](inference_README.md) |
 
 <!-- ## Inference Speed -->
 <!-- ### DreamX-World-5B-Cam
