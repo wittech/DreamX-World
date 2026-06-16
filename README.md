@@ -67,8 +67,8 @@ Please check out [inference_README.md](inference_README.md) for detailed instruc
 | H20 | 8 |  |  | -->
 ## 🎬 Video Demo
 <div align="center">
-  <video src="https://www.youtube.com/watch?v=lO_VXzpQehc" width="100%" autoplay muted loop playsinline></video>
-  <p><a href="https://www.youtube.com/watch?v=lO_VXzpQehc">Watch on YouTube</a></p>
+  <video src="https://www.youtube.com/watch?v=6IWCQWWgPNU" width="100%" autoplay muted loop playsinline></video>
+  <p><a href="https://www.youtube.com/watch?v=6IWCQWWgPNU">Watch on YouTube</a></p>
 </div>
 
 > **Note:** The demo videos are intentionally compressed to ensure smooth playback, which may result in a slight loss of visual quality.
