@@ -1,0 +1,14 @@
+# Requirements for DreamX-World 720° Rotation Demo
+
+# Core dependencies (already in main requirements.txt)
+# torch
+# torchvision
+# diffusers
+# transformers
+# accelerate
+# einops
+# omegaconf
+# pillow
+
+# Additional dependencies for the demo
+gradio>=4.0.0

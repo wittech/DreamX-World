@@ -1,7 +1,7 @@
 # ======================== Model Path ========================
-MODEL_NAME="./Wan2.2-TI2V-5B"    # Path to the folder containing the Wan2.2-5B-TI2V model weights.
+MODEL_NAME="/data/models/Wan2.2-TI2V-5B"    # Path to the folder containing the Wan2.2-5B-TI2V model weights.
 CONFIG_PATH="./configs/wan2.2/wan_ti2v_5b.yaml" # Path to model config file.
-TRANSFORMER_PATH="./DreamX-World-5B-Cam"  # Path to the folder containing the DreamX model weights.
+TRANSFORMER_PATH="/data/models/DreamX-World-5B-Cam"  # Path to the folder containing the DreamX model weights.
 # ====================== Basic settings ======================
 INPUT_DIR="./configs/dreamx/eval.json"          # Json file of inputs, containing image, prompt, and camera control.
 OUTPUT_DIR="./outputs/"          # Directory of saving output video.

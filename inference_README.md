@@ -116,7 +116,7 @@ sh inference_ar_forcing.sh
 
 Parameters that you may want to change:
 ```bash
-BASE_CHECKPOINT_PATH="${BASE_CHECKPOINT_PATH:-/path/to/baseline.pt}"  # Path to DreamX-World-5B model weights
+BASE_CHECKPOINT_PATH="${BASE_CHECKPOINT_PATH:-/data/models/DreamX-World-5B}"  # Path to DreamX-World-5B model weights
 DATA_PATH="${DATA_PATH:-configs/dreamx/eval.json}" # Path to input JSON file
 OUTPUT_FOLDER="${OUTPUT_FOLDER:-./outputs_ar/}" # Path to save output video
 NUM_OUTPUT_FRAMES=123             # Latent frames, shall be divisible by 3. Pixel frames = (N-1)*4+1. 21→81 pixels (5s@16fps), 63→249 pixels
