@@ -201,7 +201,7 @@ DreamX-World supports **prompt-driven world events** that dynamically change the
 Join our WeChat group for discussion:
 
 <div align="center">
-  <img src="assets/wechat_group_qrcode.png" width="300" alt="WeChat Group QR Code">
+  <img src="assets/wechat_group_qrcode3.png" width="300" alt="WeChat Group QR Code">
 </div>
 
 ## 📜 License
