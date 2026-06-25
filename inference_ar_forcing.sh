@@ -40,7 +40,7 @@ CMD="python inference_ar_forcing.py"
 CMD="${CMD} --config_path ${CONFIG_PATH}"
 CMD="${CMD} --model_name ${MODEL_NAME}"
 CMD="${CMD} --transformer_path ${TRANSFORMER_PATH}"
-CMD="${CMD} --base_checkpoint_path ${BASE_CHECKPOINT_PATH}"
+CMD="${CMD} --checkpoint_path ${BASE_CHECKPOINT_PATH}"
 if [ -n "${VAE_PATH}" ]; then
     CMD="${CMD} --vae_path ${VAE_PATH}"
 fi
