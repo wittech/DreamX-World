@@ -196,7 +196,8 @@ def load_pipeline(args, config, device):
     )
 
     if args.base_checkpoint_path:
-        state_dict = torch.load(args.base_checkpoint_path, map_location="cpu")
+        from safetensors.torch import load_file
+        state_dict = load_file(args.base_checkpoint_path)
         checkpoint_key = "generator_ema" if "generator_ema" in state_dict else "generator"
         gen_sd = state_dict.get(checkpoint_key, state_dict)
         try:
