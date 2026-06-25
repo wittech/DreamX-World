@@ -19,9 +19,9 @@ ADD_CONTROL_ADAPTER="--add_control_adapter"
 
 # ======================== Multi-GPU ========================
 WEIGHT_DTYPE="bfloat16"          # inference dtype.
-ULYSSES_DEGREE=8                 # ulysses degree, 1 for no ulysses.
+ULYSSES_DEGREE=2                 # ulysses degree, 1 for no ulysses.
 RING_DEGREE=1                    # ring degree, 1 for no ring.
-CUDA_DEVICES="0,1,2,3,4,5,6,7"   # Specify GPUs, e.g., "4,5,6,7". Empty = use all available.
+CUDA_DEVICES="0,1"   # Specify GPUs, e.g., "4,5,6,7". Empty = use all available.
 
 # ======================== Build Command ========================
 if [ -n "${CUDA_DEVICES}" ]; then

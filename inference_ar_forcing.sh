@@ -30,7 +30,7 @@ BLEND_OVERLAP_FRAMES=6           # Chunk boundary blending frames
 CHUNK_RELATIVE="--chunk_relative"  # Per-chunk relative poses (recommended for long videos)
 
 # ====================== GPU ======================
-CUDA_DEVICES="${CUDA_DEVICES:-0}"
+CUDA_DEVICES="${CUDA_DEVICES:-0,1}"
 
 # ======================== Build Command ========================
 export CUDA_VISIBLE_DEVICES="${CUDA_DEVICES}"
