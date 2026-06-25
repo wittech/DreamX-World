@@ -13,7 +13,7 @@
 MODEL_NAME="${MODEL_NAME:-/data/models/Wan2.2-TI2V-5B}"   # Path to the folder containing Wan2.2 base model weights (text encoder, tokenizer, VAE).
 CONFIG_PATH="./configs/dreamx-ar/causal_camera_forcing_5b.yaml"  # Path to AR-forcing YAML config file.
 TRANSFORMER_PATH="./configs/dreamx-ar/"  # Path to the folder containing AR-forcing model config.json.
-BASE_CHECKPOINT_PATH="${BASE_CHECKPOINT_PATH:-/data/models/DreamX-World-5B/model.safetensors}"  # Path to base .pt checkpoint.
+BASE_CHECKPOINT_PATH="${BASE_CHECKPOINT_PATH:-/data/models/DreamX-World-5B/}"  # Path to base .pt checkpoint.
 # VAE_PATH=""                    # (Optional) Path to VAE checkpoint, overrides MODEL_NAME/Wan2.2_VAE.pth.
 
 # ====================== Basic settings ======================
