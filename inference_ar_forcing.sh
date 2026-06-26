@@ -19,7 +19,7 @@ BASE_CHECKPOINT_PATH="${BASE_CHECKPOINT_PATH:-/data/models/DreamX-World-5B/model
 # ====================== Basic settings ======================
 DATA_PATH="${DATA_PATH:-configs/dreamx/eval.json}" # Path to input JSON file
 OUTPUT_FOLDER="${OUTPUT_FOLDER:-./outputs_ar/}" # Path to save output video
-NUM_OUTPUT_FRAMES=123            # Latent frames, shall be divisible by 3. Pixel frames = (N-1)*4+1. 21→81 pixels (5s@16fps), 63→249 pixels
+NUM_OUTPUT_FRAMES=252            # Latent frames, shall be divisible by 3. Pixel frames = (N-1)*4+1. 21→81 pixels (5s@16fps), 63→249 pixels
 FPS=16                           # FPS of output video
 SEED=42                          # Random seed
 

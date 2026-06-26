@@ -110,14 +110,11 @@ class WanDiffusionCameraWrapper(torch.nn.Module):
         from wan.modules.causal_camera_model_2_2_prope_infinity import CausalWanModel
 
         num_output_frames = kwargs.get('num_output_frames', 21)
-        eprope = kwargs.get('eprope', False)
-        attn_compress = 4 if eprope else 1
 
         if model_config_path is None:
             model_config_path = os.path.join(model_root_path, f"wan_models/{model_name}/config.json")
         self.model = CausalWanModel.from_config(
-            model_config_path,
-            local_attn_size=local_attn_size, sink_size=sink_size, attn_compress=attn_compress)
+            model_config_path, local_attn_size=local_attn_size, sink_size=sink_size)
         self.model.eval()
 
         self.scheduler = FlowMatchScheduler(shift=timestep_shift, sigma_min=0.0, extra_one_step=True)

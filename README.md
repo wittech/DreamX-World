@@ -58,13 +58,17 @@ Please check out [inference_README.md](inference_README.md) for detailed instruc
 | DreamX-World-5B-Cam | [Huggingface](https://huggingface.co/GD-ML/DreamX-World-5B-Cam),  [ModelScope](https://modelscope.cn/models/GD-ML/DreamX-World-5B-Cam) | Bidrectional, Supports 5s Video Generation | [inference_README.md](inference_README.md) |
 | DreamX-World-5B | [Huggingface](https://huggingface.co/GD-ML/DreamX-World-5B), [ModelScope](https://modelscope.cn/models/GD-ML/DreamX-World-5B) | Autoregressive, Supports Long-horizon Video Generation | [inference_README.md](inference_README.md) |
 
-<!-- ## Inference Speed -->
-<!-- ### DreamX-World-5B-Cam
-| Hardware | GPUs | DreamX-World-5B-Cam | |
-| :--- | :---: | :---: | :---: |
-| PPU810e | 1 |  |  |
-| PPU810e | 8 |  |  |
-| H20 | 8 |  |  | -->
+
+### Computational Efficiency
+> The inference time (shown in the `Cost` column below) comprises both denoising and VAE decoding time.
+
+| Model | GPUs | Video | Cost (Time in second/Peak Memory)  |
+| -- | -- | -- | -- |
+| DreamX-World-5B-Cam | 1xH20 | 5s 720P | 509s/38G |
+| DreamX-World-5B | 1xH20 |  5s 720P | 26s/40G |
+| DreamX-World-5B | 1xH20 | 60s 720P | 342s/72G |
+
+
 ## 🎬 Video Demo
 <div align="center">
   <video src="https://www.youtube.com/watch?v=6IWCQWWgPNU" width="100%" autoplay muted loop playsinline></video>

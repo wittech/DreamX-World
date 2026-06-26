@@ -41,7 +41,7 @@ from utils.trajectory_processor import generate_trajectory_from_json, Camera
 from utils.memory import gpu, get_cuda_free_memory_gb, DynamicSwapInstaller
 from utils.postprocess import postprocess_video_frames
 
-
+from safetensors.torch import load_file
 # ─────────────────────────────────────────────────────────────────────────────
 # Camera: cam_params (numpy) → PRoPE dict {viewmats, K}
 # ─────────────────────────────────────────────────────────────────────────────
@@ -196,35 +196,15 @@ def load_pipeline(args, config, device):
     )
 
     if args.base_checkpoint_path:
-        from safetensors.torch import load_file
         state_dict = load_file(args.base_checkpoint_path)
         checkpoint_key = "generator_ema" if "generator_ema" in state_dict else "generator"
-        gen_sd = state_dict.get(checkpoint_key, state_dict)
-        try:
-            missing, unexpected = pipeline.generator.load_state_dict(gen_sd, strict=False)
-        except RuntimeError:
-            fixed = {k.replace("model._fsdp_wrapped_module.", "model.", 1): v for k, v in gen_sd.items()}
-            missing, unexpected = pipeline.generator.load_state_dict(fixed, strict=False)
-        print(f"Base checkpoint loaded — missing: {len(missing)}, unexpected: {len(unexpected)}")
+        sd = state_dict.get(checkpoint_key, state_dict)
 
-    if args.checkpoint_path:
-        if args.checkpoint_path.endswith(".safetensors"):
-            from safetensors.torch import load_file
-            sd = load_file(args.checkpoint_path)
-            sd = {"model." + k: v for k, v in sd.items()}
-        elif args.checkpoint_path.endswith(".pt"):
-            raw = torch.load(args.checkpoint_path, map_location="cpu")
-            sd = raw.get("generator_ema", raw.get("generator", raw))
-        else:
-            import glob
-            from safetensors.torch import load_file
-            sd = {}
-            for f in glob.glob(args.checkpoint_path + "/*.safetensors"):
-                for k, v in load_file(f).items():
-                    if args.base_checkpoint_path is None or 'cam_self_attn' in k:
-                        sd['model.' + k] = v
-        missing, unexpected = pipeline.generator.load_state_dict(sd, strict=False)
-        print(f"Checkpoint loaded — missing: {len(missing)}, unexpected: {len(unexpected)}")
+        new_sd = {"model." + k: v for k, v in sd.items()}
+        missing, unexpected = pipeline.generator.load_state_dict(new_sd, strict=False)
+        print(f"Base checkpoint loaded")
+        print(f"missing: {missing}")
+        print(f"unexpected: {unexpected}")
 
     # LoRA support
     lora_ckpt_path = args.lora_ckpt
