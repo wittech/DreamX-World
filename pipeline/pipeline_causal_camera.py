@@ -52,7 +52,7 @@ class CausalCameraInferencePipeline(torch.nn.Module):
         y_camera: torch.Tensor,
         initial_latent: Optional[torch.Tensor] = None,
         return_latents: bool = False,
-        profile: bool = True,
+        profile: bool = False,
         low_memory: bool = False,
     ) -> torch.Tensor:
         batch_size, num_frames, num_channels, height, width = noise.shape

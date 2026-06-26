@@ -1,14 +1,14 @@
 # ======================== Model Path ========================
-MODEL_NAME="./Wan2.2-TI2V-5B"    # Path to the folder containing the Wan2.2-5B-TI2V model weights.
+MODEL_NAME="${MODEL_NAME:-./Wan2.2-TI2V-5B}"    # Path to the folder containing the Wan2.2-5B-TI2V model weights.
 CONFIG_PATH="./configs/wan2.2/wan_ti2v_5b.yaml" # Path to model config file.
-TRANSFORMER_PATH="./DreamX-World-5B-Cam"  # Path to the folder containing the DreamX model weights.
+TRANSFORMER_PATH="${TRANSFORMER_PATH:-./DreamX-World-5B-Cam}"  # Path to the folder containing the DreamX model weights.
 # ====================== Basic settings ======================
 INPUT_DIR="./configs/dreamx/eval.json"          # Json file of inputs, containing image, prompt, and camera control.
 OUTPUT_DIR="./outputs/"          # Directory of saving output video.
 SAMPLE_HEIGHT=704                # Height of the input image/output video.
 SAMPLE_WIDTH=1280                # Width of the input image/output video.
-VIDEO_LENGTH=121                 # Number of frames (must satisfy 1+4k pattern, e.g., 81, 121).
-FPS=24                           # FPS of the output video.
+VIDEO_LENGTH=81                 # Number of frames (must satisfy 1+4k pattern, e.g., 81, 121).
+FPS=16                           # FPS of the output video.
 GUIDANCE_SCALE=3.0               # CFG scale.
 NUM_INFERENCE_STEPS=50           # Number of sampling steps.
 SEED=42                          # Random seed for noise sampling.
@@ -19,9 +19,9 @@ ADD_CONTROL_ADAPTER="--add_control_adapter"
 
 # ======================== Multi-GPU ========================
 WEIGHT_DTYPE="bfloat16"          # inference dtype.
-ULYSSES_DEGREE=8                 # ulysses degree, 1 for no ulysses.
+ULYSSES_DEGREE=1                 # ulysses degree, 1 for no ulysses.
 RING_DEGREE=1                    # ring degree, 1 for no ring.
-CUDA_DEVICES="0,1,2,3,4,5,6,7"   # Specify GPUs, e.g., "4,5,6,7". Empty = use all available.
+CUDA_DEVICES="0"   # Specify GPUs, e.g., "4,5,6,7". Empty = use all available.
 
 # ======================== Build Command ========================
 if [ -n "${CUDA_DEVICES}" ]; then
